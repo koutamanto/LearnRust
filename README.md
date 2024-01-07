@@ -4,8 +4,10 @@ This repository was created for learning the Rust language and develop web apps 
 # Learning Blog
 
 ## Day 1
-Install and configure the env of Rust.
-And learned some commands.
+- Install and configure the env of Rust.
+- Learn some commands.
+- Create first web app
+
 Cargo: Package installer like a pip.
 
 #### Commands
