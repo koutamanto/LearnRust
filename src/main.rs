@@ -1,5 +1,6 @@
+use std::collections::HashMap;
+
 use axum::{Router, routing::get, extract::Query};
-use serde::Deserialize;
 #[tokio::main]
 async fn main() {
     let app = Router::new()
@@ -9,13 +10,12 @@ async fn main() {
 }
 
 async fn root(
-    message:Query<Message>
-) -> &'static str {
-    let message: = message.0;
-    &message.message
-}
-
-#[derive(Deserialize)]
-struct Message {
-    message: String,
+    query:Query<HashMap<String, String>>
+) -> String {
+    if let Some(message_value) = query.get("message") {
+        return message_value.to_string();
+    }
+    else {
+        return "Add message.".to_string();
+    }
 }
